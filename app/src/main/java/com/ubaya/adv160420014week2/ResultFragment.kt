@@ -5,6 +5,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.Navigation
+import kotlinx.android.synthetic.main.fragment_game.*
+import kotlinx.android.synthetic.main.fragment_result.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -31,5 +34,13 @@ class ResultFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        arguments?.let{
+            val score = ResultFragmentArgs.fromBundle(requireArguments()).score
+            textScore.text = "Your score is $score"
+        }
+        btnBack.setOnClickListener {
+            val action = ResultFragmentDirections.actionMainFragment()
+            Navigation.findNavController(it).navigate(action)
+        }
     }
 }
