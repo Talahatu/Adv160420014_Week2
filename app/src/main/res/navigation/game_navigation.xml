@@ -3,10 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/game_navigation"
-    app:startDestination="@id/mainFragment">
+    app:startDestination="@id/itemHome">
 
     <fragment
-        android:id="@+id/mainFragment"
+        android:id="@+id/itemHome"
         android:name="com.ubaya.adv160420014week2.MainFragment"
         android:label="Main Screen"
         tools:layout="@layout/fragment_main" >
@@ -37,11 +37,23 @@
         tools:layout="@layout/fragment_result" >
         <action
             android:id="@+id/actionMainFragment"
-            app:destination="@id/mainFragment"
+            app:destination="@id/itemHome"
             app:enterAnim="@anim/nav_default_enter_anim"
-            app:exitAnim="@anim/nav_default_exit_anim" />
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popUpTo="@id/itemHome"
+            app:popUpToInclusive="true" />
         <argument
             android:name="score"
             app:argType="integer" />
     </fragment>
+    <fragment
+        android:id="@+id/itemProfile"
+        android:name="com.ubaya.adv160420014week2.ProfileFragment"
+        android:label="Profile"
+        tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/itemHistory"
+        android:name="com.ubaya.adv160420014week2.HistoryFragment"
+        android:label="History"
+        tools:layout="@layout/fragment_history" />
 </navigation>
